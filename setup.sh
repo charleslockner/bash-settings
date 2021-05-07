@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Retrieves the current directory of this file (even though symlinks)
 # https://www.reddit.com/r/vim/comments/48s8ei/if_i_open_a_file_in_vim_and_press_j_to_move_down/
 SOURCE="${BASH_SOURCE[0]}"
@@ -11,10 +10,21 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-if test -f "$HOME/.bash_profile"; then
-    echo "$HOME/.bash_profile already exists. Please rename your .bash_profile to .bash_profile_local and rerun. This script will create a symlink called .bash_profile in $HOME"
-    exit 1
-fi
+# Function to create symlink in home directory of a file contained in this repo
+function symlink_local_file {
+  local file_name=$1
+  local sym_dest="$HOME/$file_name"
+  local sym_src="$DIR/$file_name"
+  local local_file_name=$file_name"_local"
+  local local_file="$HOME/$local_file_name"
 
-touch ~/.bash_profile_local
-ln -s $DIR/.bash_profile $HOME/.bash_profile
+  if test -f "$sym_dest"; then
+    echo "$sym_dest already exists. Please rename your $file_name to $local_file_name and rerun. This script will create a symlink called $file_name in $HOME"
+    return 1
+  fi
+
+  ln -s $sym_src $sym_dest
+}
+
+symlink_local_file ".bash_profile"
+symlink_local_file ".tmux.conf"
