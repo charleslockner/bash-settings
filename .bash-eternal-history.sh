@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the location of your HISTFILE
-export HISTFILE=$HOME/.bash_history
+export HISTFILE=$HOME/.bash_history_eternal
 # Undocumented feature which sets the size to "unlimited".
 # http://stackoverflow.com/questions/9457233/unlimited-bash-history
 export HISTFILESIZE=

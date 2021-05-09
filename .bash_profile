@@ -23,6 +23,12 @@ test -f $DIR/.bash-prompt.sh && . $_ && echo "Finished running $_"
 echo "Running local bash profile"
 test -f $HOME/.bash_profile_local && . $_ && echo "Finished running $_"
 
+# Source cargo environment
+. "$HOME/.cargo/env"
+
+# Bash rc
+. "$HOME/.bashrc"
+
 # Set Bash PATH
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin;
 # export PATH=$PATH:/usr/local/opt/icu4c/lib
