@@ -9,6 +9,9 @@ export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
 # Ignore commands that start with a space, exit, &, pwd, ls, and cd
 export HISTIGNORE="&:[ ]*:exit:pwd:ls:cd"
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL=ignoreboth
 # Just before terminal displays prompt, make sure to add last command to history
 # May kill "new tab same directory" for some reason
 export PROMPT_COMMAND='history -a; history -r'
