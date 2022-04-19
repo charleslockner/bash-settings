@@ -30,7 +30,9 @@ function symlink_local_file {
   ln -s $sym_src $sym_dest
 }
 
-symlink_local_file "$HOME/.bash_profile"
-symlink_local_file "$HOME/.tmux.conf"
+# install-fzf.sh
+
+symlink_local_file "$HOME/.bashrc"
+# symlink_local_file "$HOME/.tmux.conf"
 symlink_local_file "$HOME/.config/nvim/init.vim"
 symlink_local_file "$HOME/.vimrc"

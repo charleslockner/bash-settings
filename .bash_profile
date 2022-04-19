@@ -1,4 +1,6 @@
 
+# This file should not be used since it only triggers on remote loggin. Instead look at .bashrc
+
 echo "*** Running .bash_profile ***"
 
 # Retrieves the current directory of this file (even though symlinks)
