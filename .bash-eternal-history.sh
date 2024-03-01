@@ -7,8 +7,8 @@ export HISTFILE=$HOME/.bash_history_eternal
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
-# Ignore commands that start with a space, exit, &, pwd, ls, and cd
-export HISTIGNORE="&:[ ]*:exit:pwd:ls:cd"
+# Ignore commands that start with a space, exit, &, pwd, ls
+export HISTIGNORE="&:[ ]*:exit:pwd:ls"
 # Just before terminal displays prompt, make sure to add last command to history
 # May kill "new tab same directory" for some reason
 export PROMPT_COMMAND='history -a; history -r'
