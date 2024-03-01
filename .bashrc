@@ -16,6 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# now in .bash-eternal-history.sh (set to unlimited)
 # HISTSIZE=1000
 # HISTFILESIZE=2000
 
@@ -127,20 +128,59 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # Terminal history
-echo "Running eternal bash history"
+echo "Running .bash-eternal-history.shy"
 test -f $DIR/.bash-eternal-history.sh && . $_ && echo "Finished running $_"
 
 # Special custom bash prompt
-echo "Running bash-prompt"
+echo "Running .bash-prompt.sh"
 test -f $DIR/.bash-prompt.sh && . $_ && echo "Finished running $_"
 
-# # Include bashrc_local
-# echo "Running local bash profile"
-# test -f $HOME/.bashrc_local && . $_ && echo "Finished running $_"
+# export NVM_DIR="/home/charles/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 
 # . ~/.bash_profile
 # source /usr/share/doc/fzf/examples/key-bindings.bash
 # source /usr/share/doc/fzf/examples/completion.bash
 
 # Get rid of annoying warning
-unset GREP_OPTIONS
+# unset GREP_OPTIONS
+
+
+
+# Set Bash PATH
+# export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin;
+# export PATH=$PATH:/usr/local/opt/icu4c/lib
+# export PATH=$PATH:/usr/local/opt/icu4c/bin
+# export PATH=$PATH:/usr/local/opt/icu4c/sbin
+# export PATH=$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
+# export PATH=$PATH:/usr/local/opt/node@8/bin
+# export PATH=$PATH:~/go/bin
+# export PATH=$PATH:/snap/bin
+# export PATH=$PATH:/usr/games
+
+# add this to PATH so zoxide will work
+export PATH=$PATH:/home/charles/.local/bin
+
+# Set nvim as default text editor https://stackoverflow.com/questions/66298660/how-do-i-make-neovim-my-default-text-code-editor
+export EDITOR=nvim
+
+#Add our personal private key to ssh agent
+eval `ssh-agent`
+ssh-add ~/.ssh/id_rsa
+
+# Shortcuts
+alias source-bash='source ~/.bashrc'
+alias source-tmux='tmux source-file ~/.tmux.conf'
+alias get-git-project-path='git rev-parse --show-toplevel'
+alias sha="openssl dgst -sha256"
+alias tmux-base='tmux attach -t base || tmux new -s base'
+alias ls='ls -a'
+# fortune anarchism | cowsay | lolcat
+
+# Add zoxide to shell
+# https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#user-content-fn-1-0482b3d36e652cf44e7f6074b87265b3
+eval "$(zoxide init bash)"
+
+echo "Current PATH: $PATH"
+echo -e "*** Finished running .bashrc ***\n"
