@@ -146,6 +146,8 @@ test -f $DIR/.bash-prompt.sh && . $_ && echo "Finished running $_"
 
 # Set nvim as default text editor https://stackoverflow.com/questions/66298660/how-do-i-make-neovim-my-default-text-code-editor
 export EDITOR=nvim
+alias vim=nvim
+alias vi=nvim
 
 #Add our personal private key to ssh agent
 eval `ssh-agent`
