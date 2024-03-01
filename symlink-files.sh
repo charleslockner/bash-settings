@@ -14,25 +14,23 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # Function to create symlink in home directory of a file contained in this repo
 function symlink_local_file {
-  local file_dir=$(dirname "$1")
-  local file_name=$(basename "$1")
-  local sym_dest="$file_dir/$file_name"
-  local sym_src="$DIR/$file_name"
-  local local_file_name=$file_name"_local"
-  local local_file="$file_dir/$local_file_name"
+  local dest_dir=$(dirname "$1")
+  local dest_name=$(basename "$1")
+  local dest_path="$dest_dir/$dest_name"
+  local src_path="$DIR/$dest_name"
 
-  if test -f "$sym_dest"; then
-    echo "$sym_dest already exists. Please rename your $file_name to $local_file_name and rerun. This script will create a symlink called $file_name in $file_dir"
+  if test -f "$dest_path"; then
+    echo "$dest_path already exists. Please remove $dest_path and rerun. This script will create a symlink called $dest_name in $dest_dir"
     return 1
   fi
 
-  mkdir -p $file_dir
-  ln -s $sym_src $sym_dest
+  mkdir -p $dest_dir
+  ln -s $src_path $dest_path
 }
 
 # install-fzf.sh
 
 symlink_local_file "$HOME/.bashrc"
-# symlink_local_file "$HOME/.tmux.conf"
+symlink_local_file "$HOME/.tmux.conf"
 symlink_local_file "$HOME/.config/nvim/init.vim"
 symlink_local_file "$HOME/.vimrc"

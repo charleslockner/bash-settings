@@ -8,6 +8,17 @@ case $- in
       *) return;;
 esac
 
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# HISTSIZE=1000
+# HISTFILESIZE=2000
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -123,14 +134,13 @@ test -f $DIR/.bash-eternal-history.sh && . $_ && echo "Finished running $_"
 echo "Running bash-prompt"
 test -f $DIR/.bash-prompt.sh && . $_ && echo "Finished running $_"
 
-# Include bashrc_local
-echo "Running local bash profile"
-test -f $HOME/.bashrc_local && . $_ && echo "Finished running $_"
+# # Include bashrc_local
+# echo "Running local bash profile"
+# test -f $HOME/.bashrc_local && . $_ && echo "Finished running $_"
 
 # . ~/.bash_profile
-
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+# source /usr/share/doc/fzf/examples/key-bindings.bash
+# source /usr/share/doc/fzf/examples/completion.bash
 
 # Get rid of annoying warning
 unset GREP_OPTIONS
