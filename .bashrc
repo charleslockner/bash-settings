@@ -92,6 +92,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lal='ls -al'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -160,7 +161,6 @@ alias get-git-project-path='git rev-parse --show-toplevel'
 alias sha="openssl dgst -sha256"
 alias tmux-base='tmux attach -t base || tmux new -s base'
 alias ls='ls -a'
-# fortune anarchism | cowsay | lolcat
 
 # add this to PATH so zoxide will work
 export PATH=$PATH:/home/charles/.local/bin
@@ -171,6 +171,7 @@ eval "$(zoxide init --cmd cd bash)"
 # Allow fzf to be used in reverse-i-search (ctrl + r)
 source /usr/share/doc/fzf/examples/key-bindings.bash
 # source /usr/share/doc/fzf/examples/completion.bash # Doesn't seem to exist anymore, and isn't needed with zoxide
+
 
 echo "Current PATH: $PATH"
 echo -e "*** Finished running .bashrc ***\n"
