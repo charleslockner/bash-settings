@@ -163,7 +163,7 @@ alias tmux-base='tmux attach -t base || tmux new -s base'
 alias ls='ls -a'
 
 # add this to PATH so zoxide will work
-export PATH=$PATH:/home/charles/.local/bin
+export PATH=$PATH:~/.local/bin
 # Add zoxide to shell and alias it as cd
 # https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#user-content-fn-1-0482b3d36e652cf44e7f6074b87265b3
 eval "$(zoxide init --cmd cd bash)"
