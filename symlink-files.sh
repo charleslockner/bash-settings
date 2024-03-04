@@ -32,5 +32,4 @@ function symlink_local_file {
 
 symlink_local_file "$HOME/.bashrc"
 symlink_local_file "$HOME/.tmux.conf"
-symlink_local_file "$HOME/.config/nvim/init.vim"
-symlink_local_file "$HOME/.vimrc"
+symlink_local_file "$HOME/.config/nvim/init.lua"
