@@ -35,10 +35,6 @@ function symlink_local_file {
   fi
 
   local abs_src_path=$(readlink -f "$rel_src_path")
-  # local src_dir=$(dirname "$rel_src_path")
-
-  echo "dest_path $abs_dest_path"
-  echo "src_path $abs_src_path"
 
   if test -L "$abs_dest_path"; then
     echo Symbolic link at "$abs_dest_path that points to $abs_src_path already exists. Please remove it if it should point somewhere else"
@@ -60,11 +56,14 @@ function symlink_local_file {
   echo "Symbolic link $abs_dest_path created that points to $abs_src_path"
 }
 
-# install-fzf.sh
+# incase this is not set, which on lsw it does not appear to be
+XDG_CONFIG_HOME=$HOME/.config
 
 symlink_local_file "$HOME/.bashrc"
-symlink_local_file "$HOME/.tmux.conf"
 symlink_local_file "$HOME/.fonts/JetBrainsMono"
 # nvim config
-symlink_local_file "NvChad/init.lua" "$HOME/.config/nvim/init.lua"
-symlink_local_file "NvChad/lua" "$HOME/.config/nvim/lua"
+symlink_local_file "NvChad/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
+symlink_local_file "NvChad/lua" "$XDG_CONFIG_HOME/nvim/lua"
+# tmux config
+symlink_local_file "tpm" "$HOME/.tmux/plugins/tpm"
+symlink_local_file "$XDG_CONFIG_HOME/tmux/.tmux.conf"

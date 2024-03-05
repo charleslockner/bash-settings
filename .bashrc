@@ -129,11 +129,11 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # Terminal history
-echo "Running .bash-eternal-history.sh"
+# echo "Running .bash-eternal-history.sh"
 test -f $DIR/.bash-eternal-history.sh && . $_ && echo "Finished running $_"
 
 # Special custom bash prompt
-echo "Running .bash-prompt.sh"
+# echo "Running .bash-prompt.sh"
 test -f $DIR/.bash-prompt.sh && . $_ && echo "Finished running $_"
 
 # export NVM_DIR="/home/charles/.nvm"
@@ -151,12 +151,12 @@ alias vim=nvim
 alias vi=nvim
 
 #Add our personal private key to ssh agent
-eval `ssh-agent`
-ssh-add ~/.ssh/id_rsa
+eval `ssh-agent` > /dev/null
+ssh-add ~/.ssh/id_rsa > /dev/null
 
 # Shortcuts
 alias source-bash='source ~/.bashrc'
-alias source-tmux='tmux source-file ~/.tmux.conf'
+alias source-tmux='tmux source-file ~/.config/tmux/.tmux.conf'
 alias get-git-project-path='git rev-parse --show-toplevel'
 alias sha="openssl dgst -sha256"
 alias tmux-base='tmux attach -t base || tmux new -s base'
@@ -172,6 +172,5 @@ eval "$(zoxide init --cmd cd bash)"
 source /usr/share/doc/fzf/examples/key-bindings.bash
 # source /usr/share/doc/fzf/examples/completion.bash # Doesn't seem to exist anymore, and isn't needed with zoxide
 
-
-echo "Current PATH: $PATH"
-echo -e "*** Finished running .bashrc ***\n"
+# echo "Current PATH: $PATH"
+# echo "*** Finished running .bashrc ***"

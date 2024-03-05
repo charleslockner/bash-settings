@@ -68,8 +68,7 @@ function git_branch_color {
   fi
 }
 
-function arrow_color {
-  echo -e "\001\033[${NORM};${BOLD};${GREEN}m\002"
+function arrow_color { echo -e "\001\033[${NORM};${BOLD};${GREEN}m\002"
 }
 
 function default_color {
