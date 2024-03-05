@@ -3,5 +3,5 @@
   url = https://github.com/NvChad/NvChad
 
 [submodule "tpm"]
-  path = tpm
-  url = https://github.com/tmux-plugins/tpm
+	path = tpm
+	url = https://github.com/tmux-plugins/tpm.git
